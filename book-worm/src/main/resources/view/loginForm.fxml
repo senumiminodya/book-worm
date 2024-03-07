@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="430.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.LoginFormController">
+   <children>
+      <Label layoutX="254.0" layoutY="24.0" prefHeight="36.0" prefWidth="98.0" text="LOGIN">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="37.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/user.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="340.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/admin.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="userBtn" buttonType="RAISED" layoutX="79.0" layoutY="275.0" onAction="#userBtnOnAction" prefHeight="36.0" prefWidth="117.0" style="-fx-cursor: hand;" text="User" />
+      <JFXButton fx:id="adminBtn" buttonType="RAISED" layoutX="382.0" layoutY="275.0" onAction="#adminBtnOnAction" prefHeight="36.0" prefWidth="117.0" style="-fx-cursor: hand;" text="Admin" />
+   </children>
+</AnchorPane>

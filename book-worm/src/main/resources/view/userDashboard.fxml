@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="746.0" prefWidth="1119.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.UserDashboardController">
+   <children>
+      <Label layoutX="506.0" layoutY="14.0" prefHeight="44.0" prefWidth="107.0" text="USER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="38.0" layoutY="76.0" prefHeight="630.0" prefWidth="1044.0">
+         <children>
+            <TextField layoutX="52.0" layoutY="37.0" prefHeight="33.0" prefWidth="815.0" promptText="Search book by name." />
+            <JFXButton buttonType="RAISED" layoutX="885.0" layoutY="37.0" prefHeight="33.0" prefWidth="136.0" style="-fx-cursor: hand;" text="Search">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="52.0" layoutY="99.0" prefHeight="33.0" prefWidth="107.0" text="Book Title:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="141.0" prefHeight="33.0" prefWidth="107.0" text="Auther:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="183.0" prefHeight="33.0" prefWidth="107.0" text="Genre:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="222.0" prefHeight="33.0" prefWidth="144.0" text="Borrow Period:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="224.0" layoutY="99.0" prefHeight="33.0" prefWidth="107.0" text="Book Title:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="224.0" layoutY="141.0" prefHeight="33.0" prefWidth="107.0" text="Auther:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="224.0" layoutY="183.0" prefHeight="33.0" prefWidth="107.0" text="Genre:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="224.0" layoutY="227.0" prefWidth="150.0" />
+            <Label layoutX="52.0" layoutY="261.0" prefHeight="33.0" prefWidth="144.0" text="Due Date:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="224.0" layoutY="261.0" prefHeight="33.0" prefWidth="144.0" text="Due Date:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="52.0" layoutY="312.0" prefHeight="33.0" prefWidth="136.0" text="Add Cart">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <TableView layoutX="386.0" layoutY="159.0" prefHeight="185.0" prefWidth="635.0">
+              <columns>
+                <TableColumn prefWidth="195.0" text="Book TItle" />
+                <TableColumn prefWidth="172.0" text="Auther" />
+                  <TableColumn prefWidth="133.0" text="Genre" />
+                  <TableColumn prefWidth="134.0" text="Borrow or Cancel" />
+              </columns>
+            </TableView>
+            <Label layoutX="52.0" layoutY="355.0" prefHeight="33.0" prefWidth="127.0" text="Return Books">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TableView layoutX="25.0" layoutY="403.0" prefHeight="204.0" prefWidth="996.0">
+               <columns>
+                  <TableColumn prefWidth="221.0" text="Book TItle" />
+                  <TableColumn prefWidth="200.0" text="Auther" />
+                  <TableColumn prefWidth="199.0" text="Genre" />
+                  <TableColumn prefWidth="204.0" text="Borrow Date" />
+                  <TableColumn prefWidth="171.0" text="Return" />
+               </columns>
+            </TableView>
+            <Label layoutX="386.0" layoutY="99.0" prefHeight="33.0" prefWidth="127.0" text="Borrow Books">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
