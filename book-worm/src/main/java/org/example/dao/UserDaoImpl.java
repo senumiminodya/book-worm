@@ -4,6 +4,7 @@ import org.example.config.FactoryConfiguration;
 import org.example.entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 
@@ -16,5 +17,14 @@ public class UserDaoImpl implements UserDao{
         transaction.commit();
         session.close();
         return save !=null;
+    }
+
+    public boolean validateUser(String userName, String password) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Query<User> query = session.createQuery("FROM User WHERE userName = :username AND password = :password", User.class);
+        query.setParameter("username", userName);
+        query.setParameter("password", password);
+        User user = query.uniqueResult();
+        return user != null;
     }
 }
