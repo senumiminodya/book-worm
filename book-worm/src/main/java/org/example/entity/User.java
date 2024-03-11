@@ -6,12 +6,13 @@ import jakarta.persistence.*;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private int userId;
+    private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "userName")
+    private String userName;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "email")
     private String email;
@@ -19,9 +20,10 @@ public class User {
     @Column(name = "phoneNo")
     private String phoneNo;
 
-    public User(int userId, String name, String email, String phoneNo) {
-        this.userId = userId;
-        this.name = name;
+    public User(int id, String userName, String password, String email, String phoneNo) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
         this.email = email;
         this.phoneNo = phoneNo;
     }
@@ -29,20 +31,28 @@ public class User {
     public User() {
     }
 
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -64,10 +74,11 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
-                ", name='" + name + '\'' +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + phoneNo + '\'' +
+                ", phoneNo='" + phoneNo + '\'' +
                 '}';
     }
 }
