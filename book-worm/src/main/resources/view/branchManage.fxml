@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="668.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AdminDashboardController">
+<AnchorPane prefHeight="668.0" prefWidth="883.0" style="-fx-background-color: BED1CF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AdminDashboardController">
    <children>
-      <AnchorPane fx:id="branchAnchorpane" layoutX="8.0" layoutY="17.0" prefHeight="647.0" prefWidth="865.0">
+      <AnchorPane fx:id="branchAnchorpane" layoutX="8.0" layoutY="17.0" prefHeight="647.0" prefWidth="865.0" style="-fx-background-color: FFE4C9;">
          <children>
             <Label layoutX="371.0" layoutY="20.0" prefHeight="36.0" prefWidth="106.0" text="BRANCH">
                <font>
@@ -43,26 +43,26 @@
             <TextField layoutX="180.0" layoutY="91.0" />
             <TextField layoutX="180.0" layoutY="132.0" />
             <TextField layoutX="180.0" layoutY="174.0" />
-            <Button layoutX="44.0" layoutY="229.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="115.0" text="Save">
+            <JFXButton buttonType="RAISED" layoutX="44.0" layoutY="236.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Save">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
-            </Button>
-            <Button layoutX="180.0" layoutY="229.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="115.0" text="Update">
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="188.0" layoutY="236.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Update">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
-            </Button>
-            <Button layoutX="311.0" layoutY="229.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="115.0" text="Delete">
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="326.0" layoutY="236.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Delete">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
-            </Button>
-            <Button layoutX="441.0" layoutY="229.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="115.0" text="Clear">
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="462.0" layoutY="236.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Clear">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
-            </Button>
+            </JFXButton>
          </children>
       </AnchorPane>
    </children>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="457.0" prefWidth="1026.0" style="-fx-background-color: FFD93D;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.UserDashboardController">
+   <children>
+      <Label layoutX="445.0" layoutY="14.0" prefHeight="33.0" prefWidth="141.0" text="Return Books">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView layoutX="11.0" layoutY="61.0" prefHeight="364.0" prefWidth="996.0">
+         <columns>
+            <TableColumn prefWidth="221.0" text="Book TItle" />
+            <TableColumn prefWidth="200.0" text="Auther" />
+            <TableColumn prefWidth="199.0" text="Genre" />
+            <TableColumn prefWidth="204.0" text="Borrow Date" />
+            <TableColumn prefWidth="171.0" text="Return" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

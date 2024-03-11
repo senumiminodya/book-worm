@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="465.0" prefWidth="484.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.UserLoginFormController">
+<AnchorPane prefHeight="465.0" prefWidth="484.0" style="-fx-background-color: F1CA89;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.UserLoginFormController">
     <children>
         <Label layoutX="147.0" layoutY="23.0" prefHeight="41.0" prefWidth="190.0" text="ADMIN SIGN UP">
             <font>
@@ -25,21 +25,11 @@
             </font>
         </Label>
         <TextField layoutX="165.0" layoutY="115.0" prefHeight="34.0" prefWidth="280.0" />
-        <Button fx:id="adminSignUpBtn" layoutX="186.0" layoutY="300.0" mnemonicParsing="false" onAction="#adminSignUpBtnOnAction" prefHeight="34.0" prefWidth="112.0" style="-fx-cursor: hand;" text="Sign Up">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
         <Label layoutX="46.0" layoutY="385.0" prefHeight="34.0" prefWidth="181.0" text="Already signed up,">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="adminLoginBtn" layoutX="249.0" layoutY="385.0" mnemonicParsing="false" onAction="#adminLoginBtnOnAction" prefHeight="34.0" prefWidth="112.0" text="Log in here">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
         <PasswordField layoutX="165.0" layoutY="169.0" prefHeight="34.0" prefWidth="280.0" />
         <Label layoutX="46.0" layoutY="220.0" prefHeight="34.0" prefWidth="119.0" text="Email:">
             <font>
@@ -47,5 +37,15 @@
             </font>
         </Label>
         <PasswordField layoutX="165.0" layoutY="220.0" prefHeight="34.0" prefWidth="280.0" />
+      <JFXButton fx:id="adminSignUpBtn" buttonType="RAISED" layoutX="186.0" layoutY="300.0" onAction="#adminSignUpBtnOnAction" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: CC9B6D; -fx-cursor: hand;" text="Sign Up">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="adminLoginBtn" layoutX="281.0" layoutY="385.0" onAction="#adminLoginBtnOnAction" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: CC9B6D; -fx-cursor: hand;" text="Log In here">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
     </children>
 </AnchorPane>
