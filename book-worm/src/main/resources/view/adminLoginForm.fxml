@@ -26,13 +26,13 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <TextField layoutX="528.0" layoutY="101.0" prefHeight="34.0" prefWidth="280.0" />
+        <TextField fx:id="txtUserName" layoutX="528.0" layoutY="101.0" prefHeight="34.0" prefWidth="280.0" />
         <Label layoutX="409.0" layoutY="305.0" prefHeight="34.0" prefWidth="219.0" text="Don't have an account, ">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-      <PasswordField layoutX="528.0" layoutY="160.0" prefHeight="34.0" prefWidth="280.0" />
+      <PasswordField fx:id="txtPassword" layoutX="528.0" layoutY="160.0" prefHeight="34.0" prefWidth="280.0" />
       <ImageView fitHeight="272.0" fitWidth="341.0" layoutX="27.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/admin.jpg" />
