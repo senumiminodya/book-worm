@@ -87,6 +87,7 @@ public class UserLoginFormController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("User Sign Up");
+
         stage.show();
     }
 }

@@ -27,4 +27,18 @@ public class UserDaoImpl implements UserDao{
         User user = query.uniqueResult();
         return user != null;
     }
+    @Override
+    public long count() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Query<Long> query = session.createQuery("SELECT COUNT(*) FROM User", Long.class);
+        return query.uniqueResult();
+    }
+
+    @Override
+    public int getMaxUserId() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Query<Integer> query = session.createQuery("SELECT MAX(id) FROM User", Integer.class);
+        Integer maxId = query.uniqueResult();
+        return maxId != null ? maxId : 0; // Return 0 if no users exist
+    }
 }

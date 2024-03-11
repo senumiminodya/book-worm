@@ -39,6 +39,21 @@ public class UserSignUpFormController {
     @FXML
     private JFXButton userSignUpBtn;
 
+    public void initialize() {
+        UserBo userBo = new UserBoImpl();
+
+        try {
+            int nextUserId;
+            if (userBo.isUserTableEmpty()) {
+                nextUserId = 1; // Set ID to 1 if no user is saved in the database
+            } else {
+                nextUserId = userBo.getNextUserId(); // Get the next ID from the database
+            }
+            txtId.setText(String.valueOf(nextUserId));
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Error initializing user ID").show();
+        }
+    }
     @FXML
     void userLogInBtnOnAction(ActionEvent event) throws IOException {
         Stage window = (Stage)userLogInBtn.getScene().getWindow();
@@ -70,8 +85,7 @@ public class UserSignUpFormController {
             try {
                 if (userBO.saveUser(userDto)) {
                     new Alert(Alert.AlertType.INFORMATION, "You are saved successfully! Please Log In...").show();
-                    int preId = Integer.parseInt(txtId.getText());
-                    txtId.setText(String.valueOf(preId+1));
+                    txtId.clear();
                     txtName.clear();
                     txtPassword.clear();
                     txtEmail.clear();

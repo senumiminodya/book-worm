@@ -6,4 +6,7 @@ import java.sql.SQLException;
 
 public interface UserBo {
     boolean saveUser(UserDto dto) throws SQLException;
+    boolean isUserTableEmpty() throws SQLException;
+    int getNextUserId() throws SQLException;
+
 }
