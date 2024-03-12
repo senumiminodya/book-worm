@@ -10,12 +10,12 @@ import java.sql.SQLException;
 
 public class UserDaoImpl implements UserDao{
     @Override
-    public boolean save(User user) throws SQLException {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+    public boolean save(User user, Session session) throws SQLException {
+        //Session session = FactoryConfiguration.getInstance().getSession();
+        //Transaction transaction = session.beginTransaction();
         Object save =  session.save(user);
-        transaction.commit();
-        session.close();
+        //transaction.commit();
+        //session.close();
         return save !=null;
     }
 
@@ -28,15 +28,15 @@ public class UserDaoImpl implements UserDao{
         return user != null;
     }
     @Override
-    public long count() {
-        Session session = FactoryConfiguration.getInstance().getSession();
+    public long count(Session session) {
+        //Session session = FactoryConfiguration.getInstance().getSession();
         Query<Long> query = session.createQuery("SELECT COUNT(*) FROM User", Long.class);
         return query.uniqueResult();
     }
 
     @Override
-    public int getMaxUserId() {
-        Session session = FactoryConfiguration.getInstance().getSession();
+    public int getMaxUserId(Session session) {
+        //Session session = FactoryConfiguration.getInstance().getSession();
         Query<Integer> query = session.createQuery("SELECT MAX(id) FROM User", Integer.class);
         Integer maxId = query.uniqueResult();
         return maxId != null ? maxId : 0; // Return 0 if no users exist

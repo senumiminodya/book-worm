@@ -12,12 +12,8 @@ import java.sql.SQLException;
 public class AdminDaoImpl implements AdminDao{
 
     @Override
-    public boolean save(Admin admin) throws SQLException {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+    public boolean save(Admin admin, Session session) throws SQLException {
         Object save =  session.save(admin);
-        transaction.commit();
-        session.close();
         return save !=null;
     }
 
@@ -31,15 +27,15 @@ public class AdminDaoImpl implements AdminDao{
     }
 
     @Override
-    public long count() {
-        Session session = FactoryConfiguration.getInstance().getSession();
+    public long count(Session session) {
+        //Session session = FactoryConfiguration.getInstance().getSession();
         Query<Long> query = session.createQuery("SELECT COUNT(*) FROM Admin", Long.class);
         return query.uniqueResult();
     }
 
     @Override
-    public int getMaxAdminId() {
-        Session session = FactoryConfiguration.getInstance().getSession();
+    public int getMaxAdminId(Session session) {
+        //Session session = FactoryConfiguration.getInstance().getSession();
         Query<Integer> query = session.createQuery("SELECT MAX(id) FROM Admin", Integer.class);
         Integer maxId = query.uniqueResult();
         return maxId != null ? maxId : 0; // Return 0 if no users exist

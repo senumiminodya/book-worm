@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="668.0" prefWidth="883.0" style="-fx-background-color: BED1CF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AdminDashboardController">
+<AnchorPane prefHeight="668.0" prefWidth="883.0" style="-fx-background-color: BED1CF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.BranchManageController">
    <children>
       <AnchorPane fx:id="branchAnchorpane" layoutX="8.0" layoutY="17.0" prefHeight="647.0" prefWidth="865.0" style="-fx-background-color: FFE4C9;">
          <children>
@@ -17,52 +17,58 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TableView layoutX="35.0" layoutY="301.0" prefHeight="217.0" prefWidth="782.0">
+            <TableView fx:id="tblBranch" layoutX="42.0" layoutY="376.0" prefHeight="217.0" prefWidth="782.0">
                <columns>
-                  <TableColumn prefWidth="220.0" text="Name" />
-                  <TableColumn prefWidth="132.0" text="Password" />
-                  <TableColumn prefWidth="223.0" text="Email" />
-                  <TableColumn prefWidth="205.0" text="PhoneNo" />
+                  <TableColumn prefWidth="168.0" text="Id" />
+                  <TableColumn prefWidth="184.0" text="Name" />
+                  <TableColumn prefWidth="205.0" text="Address" />
+                  <TableColumn prefWidth="223.0" text="Contact No" />
                </columns>
             </TableView>
-            <Label layoutX="44.0" layoutY="86.0" prefHeight="33.0" prefWidth="115.0" text="Name:">
+            <Label layoutX="44.0" layoutY="132.0" prefHeight="33.0" prefWidth="115.0" text="Name:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="44.0" layoutY="127.0" prefHeight="33.0" prefWidth="115.0" text="Address:">
+            <Label layoutX="44.0" layoutY="173.0" prefHeight="33.0" prefWidth="115.0" text="Address:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="44.0" layoutY="169.0" prefHeight="33.0" prefWidth="115.0" text="Contact No:">
+            <Label layoutX="44.0" layoutY="215.0" prefHeight="33.0" prefWidth="115.0" text="Contact No:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="180.0" layoutY="91.0" />
-            <TextField layoutX="180.0" layoutY="132.0" />
-            <TextField layoutX="180.0" layoutY="174.0" />
-            <JFXButton buttonType="RAISED" layoutX="44.0" layoutY="236.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Save">
+            <TextField fx:id="txtName" layoutX="180.0" layoutY="137.0" />
+            <TextField fx:id="txtAddress" layoutX="180.0" layoutY="178.0" />
+            <TextField fx:id="txtContactNo" layoutX="180.0" layoutY="220.0" />
+            <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="44.0" layoutY="301.0" onAction="#saveBtnOnAction" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Save">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="188.0" layoutY="236.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Update">
+            <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="188.0" layoutY="301.0" onAction="#updateBtnOnAction" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Update">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="326.0" layoutY="236.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Delete">
+            <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="326.0" layoutY="301.0" onAction="#deleteBtnOnAction" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Delete">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="462.0" layoutY="236.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Clear">
+            <JFXButton fx:id="btnClear" buttonType="RAISED" layoutX="462.0" layoutY="301.0" onAction="#clearBtnOnAction" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Clear">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
+            <Label layoutX="44.0" layoutY="86.0" prefHeight="33.0" prefWidth="115.0" text="Branch Id:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtBranchId" layoutX="180.0" layoutY="90.0" />
          </children>
       </AnchorPane>
    </children>
