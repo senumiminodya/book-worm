@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import org.example.bo.*;
 import org.example.dto.AdminDto;
 import org.example.dto.BranchDto;
+import org.example.entity.Branch;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -66,9 +67,20 @@ public class BranchManageController {
 
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
-        int id = Integer.parseInt(txtBranchId.getText());
-        branchBo.deleteBranch(id);
-        new Alert(Alert.AlertType.INFORMATION, "Branch deleted successfully!").show();
+        String branchName = txtName.getText();
+        if (!branchName.isEmpty()) {
+            if (branchBo.deleteBranch(branchName)) {
+                new Alert(Alert.AlertType.INFORMATION, "Branch deleted successfully!").show();
+                txtBranchId.clear();
+                txtName.clear();
+                txtAddress.clear();
+                txtContactNo.clear();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Error deleting branch from the database").show();
+            }
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Please enter the branch name to delete").show();
+        }
     }
 
     @FXML
@@ -98,6 +110,51 @@ public class BranchManageController {
 
     @FXML
     void updateBtnOnAction(ActionEvent event) {
+        int id = Integer.parseInt(txtBranchId.getText());
+        String branchName = txtName.getText();
+        String address = txtAddress.getText();
+        String contactNo = txtContactNo.getText();
+
+        if (branchName.isEmpty() || address.isEmpty() || contactNo.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Fill All Fields").show();
+            txtName.requestFocus();
+            return;
+        } else {
+            BranchDto branchDto = new BranchDto(id, branchName, address, contactNo);
+            if (branchBo.update(branchDto)) {
+                new Alert(Alert.AlertType.INFORMATION, "Branch updated successfully!").show();
+                txtBranchId.clear();
+                txtName.clear();
+                txtAddress.clear();
+                txtContactNo.clear();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Error updating branch in the database").show();
+            }
+        }
+    }
+
+    @FXML
+    void txtNameSearchOnAction(ActionEvent event) {
+        fetchAndDisplayBranchDetails();
 
     }
+
+    private void fetchAndDisplayBranchDetails() {
+        String name = txtName.getText().trim(); // Trim the input to remove leading/trailing spaces
+        if (!name.isEmpty()) { // Check if the input is not empty
+            Branch branch = branchBo.getBranches(name);
+            if (branch != null) {
+                txtBranchId.setText(String.valueOf(branch.getId()));
+                txtAddress.setText(branch.getAddress());
+                txtContactNo.setText(branch.getContactNo());
+            } else {
+                // Branch not found
+                new Alert(Alert.AlertType.ERROR, "Branch not found").show();
+            }
+        } else {
+            // Show error if no branch name is entered
+            new Alert(Alert.AlertType.ERROR, "Please enter the branch name to search").show();
+        }
+    }
+
 }

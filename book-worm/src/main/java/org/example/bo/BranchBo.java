@@ -1,6 +1,7 @@
 package org.example.bo;
 
 import org.example.dto.BranchDto;
+import org.example.entity.Branch;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,6 +13,10 @@ public interface BranchBo {
 
     int getNextUserId() throws SQLException;
 
-    void deleteBranch(int id);
+    boolean deleteBranch(String branchName);
+
+    public boolean update(BranchDto dto);
+    public Branch getBranches(String branchName);
+    public List<Branch> getAll();
 
 }
