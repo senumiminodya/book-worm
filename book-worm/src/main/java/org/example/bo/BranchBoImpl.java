@@ -95,6 +95,8 @@ public class BranchBoImpl implements BranchBo{
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }finally {
+            session.close();
         }
     }
 
@@ -106,6 +108,8 @@ public class BranchBoImpl implements BranchBo{
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }finally {
+            session.close();
         }
     }
 
