@@ -1,26 +1,24 @@
 package org.example.bo;
 
 import org.example.config.FactoryConfiguration;
-import org.example.dao.BranchDao;
-import org.example.dao.BranchDaoImpl;
-import org.example.dto.BranchDto;
-import org.example.entity.Admin;
-import org.example.entity.Branch;
+import org.example.dao.BookDao;
+import org.example.dao.BookDaoImpl;
+import org.example.dto.BookDto;
+import org.example.entity.Book;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class BranchBoImpl implements BranchBo{
-    BranchDao branchDao = new BranchDaoImpl();
+public class BookBoImpl implements BookBo{
+    BookDao bookDao = new BookDaoImpl();
     @Override
-    public boolean saveBranch(BranchDto dto) {
+    public boolean saveBook(BookDto dto) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            boolean save = branchDao.save(new Branch(dto.getId(), dto.getName(), dto.getAddress(), dto.getContactNo()), session);
+            boolean save = bookDao.save(new Book(dto.getId(), dto.getTitle(), dto.getAuthor(), dto.getGenre(), dto.getAvailability(), dto.getBranchName()), session);
             transaction.commit();
             return save;
         }catch (Exception e){
@@ -33,34 +31,34 @@ public class BranchBoImpl implements BranchBo{
     }
 
     @Override
-    public boolean isBranchTableEmpty() throws SQLException {
+    public boolean isBookTableEmpty() throws SQLException {
         Session session = FactoryConfiguration.getInstance().getSession();
         try {
-            return branchDao.count(session) == 0; // Assuming userDao provides a count() method to count users
+            return bookDao.count(session) == 0; // Assuming userDao provides a count() method to count users
         } catch (Exception e) {
             throw new SQLException("Error checking if user table is empty", e);
         }
     }
 
     @Override
-    public int getNextUserId() throws SQLException {
+    public int getNextBookId() throws SQLException {
         Session session = FactoryConfiguration.getInstance().getSession();
         try {
-            int maxId = branchDao.getMaxUserId(session);
+            int maxId = bookDao.getMaxBookId(session);
             return maxId + 1;
         } catch (Exception e) {
-            throw new SQLException("Error getting next user ID", e);
+            throw new SQLException("Error getting next book ID", e);
         }finally {
             session.close();
         }
     }
 
     @Override
-    public boolean deleteBranch(String branchName) {
+    public boolean deleteBook(String bookTitle) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            boolean delete = branchDao.delete(branchName, session);
+            boolean delete = bookDao.delete(bookTitle, session);
             transaction.commit();
             return delete;
         } catch (Exception e) {
@@ -73,11 +71,11 @@ public class BranchBoImpl implements BranchBo{
     }
 
     @Override
-    public boolean update(BranchDto dto) {
+    public boolean update(BookDto dto) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            boolean update = branchDao.update(new Branch(dto.getId(), dto.getName(), dto.getAddress(), dto.getContactNo()), session);
+            boolean update = bookDao.update(new Book(dto.getId(), dto.getTitle(), dto.getAuthor(), dto.getGenre(), dto.getAvailability(), dto.getBranchName()), session);
             transaction.commit();
             return update;
         } catch (Exception e) {
@@ -90,10 +88,10 @@ public class BranchBoImpl implements BranchBo{
     }
 
     @Override
-    public Branch getBranches(String branchName) {
+    public Book getBooks(String bookTitle) {
         Session session = FactoryConfiguration.getInstance().getSession();
         try {
-            return branchDao.getBranch(branchName, session);
+            return bookDao.getBook(bookTitle, session);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -103,10 +101,10 @@ public class BranchBoImpl implements BranchBo{
     }
 
     @Override
-    public List<Branch> getAll() {
+    public List<Book> getAll() {
         Session session = FactoryConfiguration.getInstance().getSession();
         try {
-            return branchDao.getAll(session);
+            return bookDao.getAll(session);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -114,7 +112,4 @@ public class BranchBoImpl implements BranchBo{
             session.close();
         }
     }
-
-
-
 }

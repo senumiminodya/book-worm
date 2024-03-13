@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BED1CF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AdminDashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BED1CF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.BookManageController">
    <children>
       <AnchorPane fx:id="booksAnchorpane" layoutX="6.0" layoutY="6.0" prefHeight="647.0" prefWidth="865.0" style="-fx-background-color: FFE4C9;">
          <children>
@@ -18,65 +18,72 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TableView layoutX="42.0" layoutY="371.0" prefHeight="217.0" prefWidth="782.0">
+            <TableView fx:id="tblBooks" layoutX="42.0" layoutY="395.0" prefHeight="217.0" prefWidth="782.0">
                <columns>
-                  <TableColumn prefWidth="169.0" text="Title" />
-                  <TableColumn prefWidth="146.0" text="Author" />
-                  <TableColumn prefWidth="158.0" text="Genre" />
-                  <TableColumn prefWidth="153.0" text="Availability" />
-                  <TableColumn prefWidth="155.0" text="Branch Name" />
+                  <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
+                  <TableColumn fx:id="colTitle" prefWidth="157.0" text="Title" />
+                  <TableColumn fx:id="colAuthor" prefWidth="142.0" text="Author" />
+                  <TableColumn fx:id="colGenre" prefWidth="161.0" text="Genre" />
+                  <TableColumn fx:id="colAvailability" prefWidth="119.0" text="Availability" />
+                  <TableColumn fx:id="colBranch" prefWidth="127.0" text="Branch" />
                </columns>
             </TableView>
-            <Label layoutX="51.0" layoutY="72.0" prefHeight="33.0" prefWidth="115.0" text="Title:">
+            <Label layoutX="51.0" layoutY="99.0" prefHeight="33.0" prefWidth="115.0" text="Title:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="51.0" layoutY="113.0" prefHeight="33.0" prefWidth="115.0" text="Author:">
+            <Label layoutX="51.0" layoutY="140.0" prefHeight="33.0" prefWidth="115.0" text="Author:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="51.0" layoutY="155.0" prefHeight="33.0" prefWidth="115.0" text="Genre:">
+            <Label layoutX="51.0" layoutY="182.0" prefHeight="33.0" prefWidth="115.0" text="Genre:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="51.0" layoutY="196.0" prefHeight="33.0" prefWidth="115.0" text="Availability:">
+            <Label layoutX="51.0" layoutY="223.0" prefHeight="33.0" prefWidth="115.0" text="Availability:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="205.0" layoutY="77.0" />
-            <TextField layoutX="205.0" layoutY="118.0" />
-            <TextField layoutX="205.0" layoutY="160.0" />
-            <Label layoutX="205.0" layoutY="201.0" prefHeight="24.0" prefWidth="171.0" text="Available" />
-            <Label layoutX="51.0" layoutY="235.0" prefHeight="33.0" prefWidth="136.0" text="Branch Name:">
+            <TextField fx:id="txtTitle" layoutX="205.0" layoutY="104.0" onAction="#txtTitleOnAction" prefHeight="24.0" prefWidth="387.0" />
+            <TextField fx:id="txtAuthor" layoutX="205.0" layoutY="145.0" prefHeight="24.0" prefWidth="387.0" />
+            <TextField fx:id="txtGenre" layoutX="205.0" layoutY="187.0" prefHeight="24.0" prefWidth="387.0" />
+            <Label fx:id="lblAvailability" layoutX="205.0" layoutY="228.0" prefHeight="24.0" prefWidth="171.0" text="Available" />
+            <Label layoutX="51.0" layoutY="262.0" prefHeight="33.0" prefWidth="136.0" text="Branch Name:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ComboBox layoutX="205.0" layoutY="240.0" prefHeight="24.0" prefWidth="171.0" />
-            <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="307.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Save">
+            <ComboBox fx:id="cmbBranches" layoutX="205.0" layoutY="267.0" prefHeight="24.0" prefWidth="209.0" />
+            <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="51.0" layoutY="324.0" onAction="#saveBtnOnAction" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Save">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="195.0" layoutY="307.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Update">
+            <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="195.0" layoutY="324.0" onAction="#updateBtnOnAction" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Update">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="333.0" layoutY="307.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Delete">
+            <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="333.0" layoutY="324.0" onAction="#deleteBtnOnAction" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Delete">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="469.0" layoutY="307.0" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Clear">
+            <JFXButton fx:id="btnClear" buttonType="RAISED" layoutX="469.0" layoutY="324.0" onAction="#clearBtnOnAction" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Clear">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
+            <Label layoutX="51.0" layoutY="61.0" prefHeight="33.0" prefWidth="115.0" text="Book Id:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtBookId" layoutX="205.0" layoutY="65.0" prefHeight="24.0" prefWidth="387.0" />
          </children>
       </AnchorPane>
    </children>
