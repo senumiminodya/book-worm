@@ -58,4 +58,18 @@ public class BookDaoImpl implements BookDao{
         Query<Book> query = session.createQuery("FROM Book ", Book.class);
         return query.list();
     }
+
+    public void changeAvailability(Book book, Session session) {
+        session.createQuery("UPDATE Book SET availability = :availability WHERE id = :id").
+                setParameter("availability", book.getAvailability()).
+                setParameter("id", book.getId()).executeUpdate();
+    }
+
+    public void changeAvailability(List<Book> list,Session session){
+        for (Book book : list) {
+            changeAvailability(book, session);
+        }
+    }
+
+
 }

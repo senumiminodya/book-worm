@@ -26,6 +26,11 @@ public class AdminDashboardController {
     @FXML
     private JFXButton userBtn;
 
+    public void initialize() throws IOException {
+        AnchorPane view = FXMLLoader.load(getClass().getResource("/view/booksManage.fxml"));
+        borderPane.setCenter(view);
+    }
+
     @FXML
     void booksOnMouseClicked(MouseEvent event) throws IOException {
         AnchorPane view = FXMLLoader.load(getClass().getResource("/view/booksManage.fxml"));

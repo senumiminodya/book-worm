@@ -5,6 +5,7 @@ import org.example.dao.BookDao;
 import org.example.dao.BookDaoImpl;
 import org.example.dto.BookDto;
 import org.example.entity.Book;
+import org.example.entity.Branch;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -18,7 +19,12 @@ public class BookBoImpl implements BookBo{
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            boolean save = bookDao.save(new Book(dto.getId(), dto.getTitle(), dto.getAuthor(), dto.getGenre(), dto.getAvailability(), dto.getBranchName()), session);
+            Book book = new Book(dto.getId(), dto.getTitle(), dto.getAuthor(), dto.getGenre(), dto.getAvailability());
+            Branch branch = new Branch();
+            branch.setId(dto.getBranchId());
+            book.setBranch(branch);
+            session.detach(branch);
+            boolean save = bookDao.save(book, session);
             transaction.commit();
             return save;
         }catch (Exception e){
@@ -75,7 +81,12 @@ public class BookBoImpl implements BookBo{
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            boolean update = bookDao.update(new Book(dto.getId(), dto.getTitle(), dto.getAuthor(), dto.getGenre(), dto.getAvailability(), dto.getBranchName()), session);
+            Book book = new Book(dto.getId(), dto.getTitle(), dto.getAuthor(), dto.getGenre(), dto.getAvailability());
+            Branch branch = new Branch();
+            branch.setId(dto.getBranchId());
+            book.setBranch(branch);
+            session.detach(branch);
+            boolean update = bookDao.update(book, session);
             transaction.commit();
             return update;
         } catch (Exception e) {

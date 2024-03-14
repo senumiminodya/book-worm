@@ -105,7 +105,7 @@ public class BookManageController {
         setComboBox();
         setCellvalueFactory();
         tableListener();
-        loadAllBranches();
+        loadAllBooks();
     }
 
     @FXML
@@ -146,13 +146,14 @@ public class BookManageController {
         String genre = txtGenre.getText();
         String availability = lblAvailability.getText();
         String branch = cmbBranches.getValue().getName();
+        int branchId = cmbBranches.getValue().getId();
 
         if (title.isEmpty() || author.isEmpty() || genre.isEmpty() || availability.isEmpty() || branch.isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Fill All Fields").show();
             txtTitle.requestFocus();
             return;
         } else {
-            BookDto bookDto = new BookDto(id, title, author, genre, availability, branch);
+            BookDto bookDto = new BookDto(id, title, author, genre, availability, branch,branchId);
             if (bookBo.saveBook(bookDto)) {
                 new Alert(Alert.AlertType.INFORMATION, "Book saved successfully!").show();
                 txtBookId.clear();
@@ -191,12 +192,12 @@ public class BookManageController {
         }
     }
 
-    private void loadAllBranches() {
+    private void loadAllBooks() {
         ObservableList<BookTm> observableList = FXCollections.observableArrayList();
         List<Book> bookList = bookBo.getAll(); // Assuming you have a branchesBO object
         for (Book book : bookList) {
             // Create BranchTm object using book details and add it to the observable list
-            observableList.add(new BookTm(book.getId(), book.getTitle(), book.getAuthor(), book.getGenre(), book.getAvailability(), book.getBranchName().toString()));
+            observableList.add(new BookTm(book.getId(), book.getTitle(), book.getAuthor(), book.getGenre(), book.getAvailability(),""));
         }
         // Clear existing items and set the new observable list
         tblBooks.getItems().clear();
@@ -209,7 +210,7 @@ public class BookManageController {
         colAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
         colGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
         colAvailability.setCellValueFactory(new PropertyValueFactory<>("availability"));
-        colBranch.setCellValueFactory(new PropertyValueFactory<>("branch"));
+        colBranch.setCellValueFactory(new PropertyValueFactory<>("branchName"));
     }
     private void tableListener() {
         tblBooks.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -233,13 +234,14 @@ public class BookManageController {
         String genre = txtGenre.getText();
         String availability = lblAvailability.getText();
         String branch = cmbBranches.getValue().getName();
+        int id1 = cmbBranches.getValue().getId();
 
         if (title.isEmpty() || author.isEmpty() || genre.isEmpty() || availability.isEmpty() || branch.isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Fill All Fields").show();
             txtTitle.requestFocus();
             return;
         } else {
-            BookDto bookDto = new BookDto(id, title, author, genre, availability, branch);
+            BookDto bookDto = new BookDto(id, title, author, genre, availability, branch,id1);
             if (bookBo.update(bookDto)) {
                 new Alert(Alert.AlertType.INFORMATION, "Book updated successfully!").show();
                 txtBookId.clear();

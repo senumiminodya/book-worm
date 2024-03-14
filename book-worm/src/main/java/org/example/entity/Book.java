@@ -1,9 +1,8 @@
 package org.example.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -18,19 +17,25 @@ public class Book {
     private String genre;
     @Column(name = "availability")
     private String availability;
-    @Column(name = "branchName")
-    private String branchName;
+
+    @OneToMany(mappedBy = "book")
+    private
+    List<BorrowBook> borrowBookList;
+
+    @OneToOne(cascade = CascadeType.ALL)
+            @JoinColumn(name = "branchId")
+    private
+    Branch branch;
 
     public Book() {
     }
 
-    public Book(int id, String title, String author, String genre, String availability, String branchName) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.genre = genre;
-        this.availability = availability;
-        this.branchName = branchName;
+    public Book(int id, String title, String author, String genre, String availability) {
+        this.setId(id);
+        this.setTitle(title);
+        this.setAuthor(author);
+        this.setGenre(genre);
+        this.setAvailability(availability);
     }
 
     public int getId() {
@@ -73,23 +78,30 @@ public class Book {
         this.availability = availability;
     }
 
-    public String getBranchName() {
-        return branchName;
-    }
-
-    public void setBranchName(String branchName) {
-        this.branchName = branchName;
-    }
-
     @Override
     public String toString() {
         return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", genre='" + genre + '\'' +
-                ", availability='" + availability + '\'' +
-                ", branchName='" + branchName + '\'' +
+                "id=" + getId() +
+                ", title='" + getTitle() + '\'' +
+                ", author='" + getAuthor() + '\'' +
+                ", genre='" + getGenre() + '\'' +
+                ", availability='" + getAvailability() + '\'' +
                 '}';
+    }
+
+    public List<BorrowBook> getBorrowBookList() {
+        return borrowBookList;
+    }
+
+    public void setBorrowBookList(List<BorrowBook> borrowBookList) {
+        this.borrowBookList = borrowBookList;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
 }

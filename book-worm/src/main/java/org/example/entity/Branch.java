@@ -1,9 +1,6 @@
 package org.example.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "branches")
@@ -20,14 +17,17 @@ public class Branch {
     @Column(name = "contactNo")
     private String contactNo;
 
+    @OneToOne(mappedBy = "branch")
+    private Book book;
+
     public Branch() {
     }
 
     public Branch(int id, String branchName, String address, String contactNo) {
-        this.id = id;
-        this.branchName = branchName;
-        this.address = address;
-        this.contactNo = contactNo;
+        this.setId(id);
+        this.setBranchName(branchName);
+        this.setAddress(address);
+        this.setContactNo(contactNo);
     }
 
     public int getId() {
@@ -65,10 +65,18 @@ public class Branch {
     @Override
     public String toString() {
         return "Branch{" +
-                "id=" + id +
-                ", branchName='" + branchName + '\'' +
-                ", address='" + address + '\'' +
-                ", contactNo='" + contactNo + '\'' +
+                "id=" + getId() +
+                ", branchName='" + getBranchName() + '\'' +
+                ", address='" + getAddress() + '\'' +
+                ", contactNo='" + getContactNo() + '\'' +
                 '}';
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }

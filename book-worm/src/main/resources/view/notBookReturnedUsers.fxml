@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.NotBookReturnedUsersController">
+    <AnchorPane fx:id="booksAnchorpane" layoutX="6.0" layoutY="6.0" prefHeight="647.0" prefWidth="865.0" style="-fx-background-color: FFE4C9;">
+        <children>
+            <Label layoutX="277.0" layoutY="14.0" prefHeight="36.0" prefWidth="313.0" text="Not Reterned Book Users">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+            <TableView fx:id="tblBooks" layoutX="43.0" layoutY="76.0" prefHeight="505.0" prefWidth="782.0">
+                <columns>
+                    <TableColumn fx:id="colId" prefWidth="95.0" text="UserName" />
+                    <TableColumn fx:id="colTitle" prefWidth="137.0" text="Title" />
+                    <TableColumn fx:id="colAuthor" prefWidth="142.0" text="Phone No" />
+                    <TableColumn fx:id="colAvailability" prefWidth="119.0" text="Borrowed Date" />
+                    <TableColumn fx:id="colBranch" prefWidth="157.0" text="Returned Date" />
+                    <TableColumn fx:id="colGenre" prefWidth="131.0" text="Fine" />
+                </columns>
+            </TableView>
+        </children>
+    </AnchorPane>
+
+</AnchorPane>

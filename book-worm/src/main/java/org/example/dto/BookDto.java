@@ -14,4 +14,5 @@ public class BookDto {
     private String genre;
     private String availability;
     private String branchName;
+    private int branchId;
 }

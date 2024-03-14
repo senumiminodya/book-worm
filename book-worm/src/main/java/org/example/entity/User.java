@@ -2,6 +2,8 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -19,6 +21,9 @@ public class User {
 
     @Column(name = "phoneNo")
     private String phoneNo;
+
+    @OneToMany(mappedBy = "user")
+    private List<BorrowBook> borrowBookList;
 
     public User(int id, String userName, String password, String email, String phoneNo) {
         this.id = id;
@@ -69,6 +74,14 @@ public class User {
 
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
+    }
+
+    public List<BorrowBook> getBorrowBookList() {
+        return borrowBookList;
+    }
+
+    public void setBorrowBookList(List<BorrowBook> borrowBookList) {
+        this.borrowBookList = borrowBookList;
     }
 
     @Override

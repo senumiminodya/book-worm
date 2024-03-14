@@ -17,4 +17,6 @@ public interface BookDao {
     public boolean update(Book book, Session session);
     public Book getBook(String bookTitle, Session session);
     public List<Book> getAll(Session session);
+    void changeAvailability(List<Book> list,Session session);
+    void changeAvailability(Book book,Session session);
 }

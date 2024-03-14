@@ -149,6 +149,7 @@ public class UserManageController {
         if (!name.isEmpty()) { // Check if the input is not empty
             User user = userBo.getUsers(name);
             if (user != null) {
+
                 txtId.setText(String.valueOf(user.getId()));
                 txtName.setText(user.getUserName());
                 txtEmail.setText(user.getEmail());
@@ -176,7 +177,7 @@ public class UserManageController {
             txtName.requestFocus();
             return;
         } else {
-            UserDto userDto = new UserDto(id, name, email, phoneNo, password);
+            UserDto userDto = new UserDto(id, name, password, email, phoneNo);
             if (userBo.update(userDto)) {
                 new Alert(Alert.AlertType.INFORMATION, "User updated successfully!").show();
                 txtId.clear();

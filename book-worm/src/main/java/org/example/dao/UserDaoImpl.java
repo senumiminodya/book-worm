@@ -3,6 +3,7 @@ package org.example.dao;
 import org.example.config.FactoryConfiguration;
 import org.example.entity.Branch;
 import org.example.entity.User;
+import org.example.indb.DB;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -23,6 +24,8 @@ public class UserDaoImpl implements UserDao{
         query.setParameter("username", userName);
         query.setParameter("password", password);
         User user = query.uniqueResult();
+        DB.loggedUserId = user.getId();
+        DB.loggedUserName = user.getUserName();
         return user != null;
     }
     @Override
