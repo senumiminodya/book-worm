@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -72,7 +74,7 @@
                     <TableColumn fx:id="colTitle" prefWidth="265.0" text="Book TItle" />
                     <TableColumn fx:id="colAuthor" prefWidth="224.0" text="Auther" />
                     <TableColumn fx:id="colGenre" prefWidth="221.0" text="Genre" />
-                    <TableColumn fx:id="colBorrow" minWidth="0.0" prefWidth="264.0" text="Borrow or Cancel" />
+                    <TableColumn fx:id="colBorrow" minWidth="0.0" prefWidth="264.0" text="Cancel" />
                 </columns>
             </TableView>
             <Label layoutX="52.0" layoutY="360.0" prefHeight="33.0" prefWidth="150.0" text="Borrow Books">
@@ -85,7 +87,15 @@
                     <Font size="18.0" />
                 </font>
             </Label>
-         <JFXButton layoutX="913.0" layoutY="616.0" onAction="#btnBorrowOnAction" text="Save BTN" />
+         <JFXButton buttonType="RAISED" layoutX="852.0" layoutY="597.0" onAction="#btnBorrowOnAction" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: ECB159;" text="Borrow">
+            <font>
+               <Font size="18.0" />
+            </font></JFXButton>
+         <ImageView fitHeight="245.0" fitWidth="330.0" layoutX="682.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../assets/business-3d-stack-of-different-books.png" />
+            </image>
+         </ImageView>
         </children>
     </AnchorPane>
 

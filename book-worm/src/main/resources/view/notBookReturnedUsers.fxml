@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.NotBookReturnedUsersController">
-    <AnchorPane fx:id="booksAnchorpane" layoutX="6.0" layoutY="6.0" prefHeight="647.0" prefWidth="865.0" style="-fx-background-color: FFE4C9;">
+<AnchorPane prefHeight="691.0" prefWidth="868.0" style="-fx-background-color: E78895;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.NotBookReturnedUsersController">
+    <AnchorPane fx:id="booksAnchorpane" layoutX="1.0" layoutY="1.0" prefHeight="691.0" prefWidth="868.0" style="-fx-background-color: FFE4C9;">
         <children>
             <Label layoutX="277.0" layoutY="14.0" prefHeight="36.0" prefWidth="313.0" text="Not Reterned Book Users">
                 <font>

@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -48,6 +50,13 @@ public class AdminDashboardController {
         AnchorPane view = FXMLLoader.load(getClass().getResource("/view/branchManage.fxml"));
         borderPane.setCenter(view);
     }
+
+    @FXML
+    void notBookReturnedUsersBtnOnMouseClicked(MouseEvent event) throws IOException {
+        AnchorPane veiw = FXMLLoader.load(getClass().getResource("/view/notBookReturnedUsers.fxml"));
+        borderPane.setCenter(veiw);
+    }
+
 
 
 }

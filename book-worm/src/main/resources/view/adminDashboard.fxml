@@ -6,31 +6,31 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="791.0" prefWidth="1181.0" style="-fx-background-color: BED1CF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AdminDashboardController">
+<AnchorPane prefHeight="791.0" prefWidth="1181.0" style="-fx-background-color: FFFDCB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AdminDashboardController">
    <children>
-      <Label layoutX="546.0" layoutY="22.0" prefHeight="36.0" prefWidth="89.0" text="ADMIN">
+      <Label layoutX="546.0" layoutY="14.0" prefHeight="36.0" prefWidth="89.0" text="ADMIN">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="14.0" layoutY="72.0" prefHeight="485.0" prefWidth="200.0" style="-fx-background-color: FFE4C9;">
+      <AnchorPane layoutX="14.0" layoutY="72.0" prefHeight="680.0" prefWidth="268.0" style="-fx-background-color: FFFDCB;">
          <children>
-            <JFXButton fx:id="userBtn" buttonType="RAISED" layoutX="7.0" layoutY="44.0" onMouseClicked="#userOnMouseClicked" prefHeight="65.0" prefWidth="261.0" style="-fx-background-color: E78895;" text="User">
+            <JFXButton fx:id="userBtn" buttonType="RAISED" layoutX="5.0" layoutY="99.0" onMouseClicked="#userOnMouseClicked" prefHeight="89.0" prefWidth="261.0" style="-fx-background-color: E78895;" text="User">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="booksBtn" buttonType="RAISED" layoutX="7.0" layoutY="124.0" onMouseClicked="#booksOnMouseClicked" prefHeight="65.0" prefWidth="261.0" style="-fx-background-color: E78895;" text="Books">
+            <JFXButton fx:id="booksBtn" buttonType="RAISED" layoutX="7.0" layoutY="210.0" onMouseClicked="#booksOnMouseClicked" prefHeight="89.0" prefWidth="261.0" style="-fx-background-color: E78895;" text="Books">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="branchBtn" buttonType="RAISED" layoutX="7.0" layoutY="207.0" onMouseClicked="#branchOnMouseClicked" prefHeight="65.0" prefWidth="261.0" style="-fx-background-color: E78895;" text="Branch">
+            <JFXButton fx:id="branchBtn" buttonType="RAISED" layoutX="5.0" layoutY="324.0" onMouseClicked="#branchOnMouseClicked" prefHeight="89.0" prefWidth="261.0" style="-fx-background-color: E78895;" text="Branch">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btnNotBookReturnedUsers" buttonType="RAISED" layoutX="7.0" layoutY="293.0" onMouseClicked="#branchOnMouseClicked" prefHeight="65.0" prefWidth="261.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Not Book Returned Users ">
+            <JFXButton fx:id="btnNotBookReturnedUsers" buttonType="RAISED" layoutX="4.0" layoutY="440.0" onMouseClicked="#notBookReturnedUsersBtnOnMouseClicked" prefHeight="89.0" prefWidth="261.0" style="-fx-background-color: E78895; -fx-cursor: hand;" text="Not Book Returned Users ">
                <font>
                   <Font size="18.0" />
                </font>

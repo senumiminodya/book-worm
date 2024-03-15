@@ -6,12 +6,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BED1CF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.BookManageController">
+<AnchorPane prefHeight="691.0" prefWidth="868.0" style="-fx-background-color: E78895;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.BookManageController">
    <children>
-      <AnchorPane fx:id="booksAnchorpane" layoutX="6.0" layoutY="6.0" prefHeight="647.0" prefWidth="865.0" style="-fx-background-color: FFE4C9;">
+      <AnchorPane fx:id="booksAnchorpane" layoutX="2.0" layoutY="2.0" prefHeight="691.0" prefWidth="868.0" style="-fx-background-color: FFE4C9;">
          <children>
             <Label layoutX="388.0" layoutY="14.0" prefHeight="36.0" prefWidth="89.0" text="BOOKS">
                <font>
@@ -84,6 +86,11 @@
                </font>
             </Label>
             <TextField fx:id="txtBookId" layoutX="205.0" layoutY="65.0" prefHeight="24.0" prefWidth="387.0" />
+            <ImageView fitHeight="307.0" fitWidth="181.0" layoutX="659.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/3d-casual-life-black-girl-with-stack-of-books.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
