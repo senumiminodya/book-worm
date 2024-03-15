@@ -9,6 +9,7 @@ import org.example.bo.UserBo;
 import org.example.bo.UserBoImpl;
 import org.example.entity.User;
 import javafx.scene.control.Label;
+import org.example.indb.DB;
 
 import java.io.IOException;
 
@@ -38,11 +39,11 @@ public class UserDashboardController {
     public void initialize() throws IOException {
         AnchorPane view = FXMLLoader.load(getClass().getResource("/view/viewBooks.fxml"));
         root.setCenter(view);
-        UserBoImpl userBoImpl = new UserBoImpl();
+        /*UserBoImpl userBoImpl = new UserBoImpl();
         for (User user : userBoImpl.getAll()) {
             lblUserName.setText(user.getUserName());
-        }
-
+        }*/
+        lblUserName.setText(DB.loggedUserName);
     }
 
     @FXML

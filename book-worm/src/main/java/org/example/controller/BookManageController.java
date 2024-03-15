@@ -94,7 +94,7 @@ public class BookManageController {
         cmbBranches.setConverter(new StringConverter<BranchCm>() {
             @Override
             public String toString(BranchCm branchCm) {
-                return branchCm==null ? "" : branchCm.getId()+" : "+branchCm.getName();
+                return branchCm==null ? "" : branchCm.getName();
             }
 
             @Override

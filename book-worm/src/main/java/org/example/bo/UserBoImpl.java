@@ -84,7 +84,7 @@ public class UserBoImpl implements UserBo{
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            boolean update = userDao.update(new User(dto.getId(), dto.getUserName(), dto.getEmail(), dto.getPhoneNo(), dto.getPassword()), session);
+            boolean update = userDao.update(new User(dto.getId(), dto.getUserName(), dto.getEmail(), dto.getPassword(), dto.getPhoneNo()), session);
             transaction.commit();
             return update;
         } catch (Exception e) {
