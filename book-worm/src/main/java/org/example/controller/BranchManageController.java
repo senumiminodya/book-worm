@@ -95,6 +95,7 @@ public class BranchManageController {
                 txtName.clear();
                 txtAddress.clear();
                 txtContactNo.clear();
+                loadAllBranches();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Error deleting branch from the database").show();
             }
@@ -122,6 +123,7 @@ public class BranchManageController {
                 txtName.clear();
                 txtAddress.clear();
                 txtContactNo.clear();
+                loadAllBranches();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Error saving branch to the database").show();
             }
@@ -147,6 +149,7 @@ public class BranchManageController {
                 txtName.clear();
                 txtAddress.clear();
                 txtContactNo.clear();
+                loadAllBranches();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Error updating branch in the database").show();
             }

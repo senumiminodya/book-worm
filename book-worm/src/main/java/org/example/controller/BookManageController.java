@@ -130,6 +130,7 @@ public class BookManageController {
                 txtGenre.clear();
                 lblAvailability.setText(null);
                 cmbBranches.getSelectionModel().clearSelection();
+                loadAllBooks();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Error deleting book from the database").show();
             }
@@ -162,6 +163,7 @@ public class BookManageController {
                 txtGenre.clear();
                 lblAvailability.setText(null);
                 cmbBranches.getSelectionModel().clearSelection();
+                loadAllBooks();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Error saving book to the database").show();
             }
@@ -250,6 +252,7 @@ public class BookManageController {
                 txtGenre.clear();
                 lblAvailability.setText(null);
                 cmbBranches.getSelectionModel().clearSelection();
+                loadAllBooks();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Error updating book in the database").show();
             }
